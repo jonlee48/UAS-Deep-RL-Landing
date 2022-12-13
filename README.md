@@ -38,3 +38,17 @@ Requires a Linux machine. We use Ubuntu 20.04.
    Images taken by the drone's camera will be save in `/tmp/airsim_drone`.
 8. AirSim has [documentation](https://microsoft.github.io/AirSim/reinforcement_learning/) for running the multirotor with DQN training.
 
+
+## Running
+We can run the `hello_drone.py` script and take pictures. There are 2 steps.
+Start AirSim environment in UE4
+1. `ssh -Y test@161.253.73.97`
+2. `cd ~/Downloads/LinuxBlocks1.8.1/LinuxNoEditor`
+3. `./Blocks.sh`
+4. A new window should pop up showing the drone
+Run Client hello_drone.py script
+1. Log into test using MobaXTerm VNC session
+2. `cd ~/AirSim/PythonClient/multirotor`
+3. `python hello_drone.py` 
+Images get saved to `/tmp/airsim_drone`
+
