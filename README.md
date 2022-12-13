@@ -36,7 +36,6 @@ Requires a Linux machine. We use Ubuntu 20.04.
    ```
 7. Make any code changes to `~/AirSim/PythonClient/multirotor/hello_drone.py`
    Images taken by the drone's camera will be save in `/tmp/airsim_drone`.
-8. AirSim has [documentation](https://microsoft.github.io/AirSim/reinforcement_learning/) for running the multirotor with DQN training.
 
 
 ## Running
@@ -52,3 +51,10 @@ Run Client hello_drone.py script
 3. `python hello_drone.py` 
 Images get saved to `/tmp/airsim_drone`
 
+## Reinforcement Learning
+[AirSim RL documentation](https://microsoft.github.io/AirSim/reinforcement_learning/) for running the multirotor with OpenAI gym.
+1. `cd ~AirSim/PythonClient/reinforcement_learning` 
+2. `pip install gym`
+3. `pip install stable_baselines3`
+4. `pip install tensorboard`
+5. `python dqn_drone.py`
