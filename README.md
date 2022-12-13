@@ -15,12 +15,21 @@ Requires a Linux machine. We use Ubuntu 20.04.
    cd ~/Downloads/LinuxBlocks1.8.1/LinuxNoEditor
    ./Blocks.sh
    ```
+   UE4 will prompt the user to select either the car or multirotor simulation. Sometimes the buttons do not work, so to set it on start up, modify the `settings.json` file in `~/Documents/AirSim/settings.json` to include
+   ```
+   "SimMode": "Multirotor"
+   ```
+   To prompt the user, set `"SimMode": ""`. Additional settings can be found [here](https://microsoft.github.io/AirSim/settings/).
 5. If that is not working. You might have to start UnrealEngine manually using the following.
    ```
    cd ~/UnrealEngine
    ./Engine/Binaries/Linux/UE4Editor
    ```
-6. Once AirSim is running in UE4, you can connect a PythonClient. The instructions are here: [python API](https://microsoft.github.io/AirSim/apis/), but this is what I ran:
+6. Once AirSim is running in UE4, you can connect a PythonClient. If AirSim is not running from the previous steps, you will see an error like
+   ```
+   WARNING:tornado.general:Connect error on fd 6: WSAECONNREFUSED
+   ```
+   I used the instructions for the [python API](https://microsoft.github.io/AirSim/apis/), but this is what I ran:
    ```
    cd ~/AirSim/PythonClient/multirotor
    python hello_drone.py
