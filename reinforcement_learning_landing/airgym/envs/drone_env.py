@@ -83,13 +83,8 @@ class AirSimDroneEnv(AirSimEnv):
         beta = 1
 
         z = -10
-        pts = [
-            np.array([-0.55265, -31.9786, -19.0225]),
-            np.array([48.59735, -63.3286, -60.07256]),
-            np.array([193.5974, -55.0786, -46.32256]),
-            np.array([369.2474, 35.32137, -62.5725]),
-            np.array([541.3474, 143.6714, -32.07256]),
-        ]
+        # coordinates of the landing pad
+        pad = np.array([-0.55265, -31.9786, -19.0225])
 
         quad_pt = np.array(
             list(
@@ -104,13 +99,7 @@ class AirSimDroneEnv(AirSimEnv):
         if self.state["collision"]:
             reward = -100
         else:
-            dist = 10000000
-            for i in range(0, len(pts) - 1):
-                dist = min(
-                    dist,
-                    np.linalg.norm(np.cross((quad_pt - pts[i]), (quad_pt - pts[i + 1])))
-                    / np.linalg.norm(pts[i] - pts[i + 1]),
-                )
+            dist = math.sqrt((quad_pt[0] - pad[0])**2 + (quad_pt[1] - pad[1])**2 + (quad_pt[2] - pad[2])**2)
 
             if dist > thresh_dist:
                 reward = -10
